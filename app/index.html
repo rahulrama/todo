@@ -8,8 +8,18 @@
     <script type="text/javascript" src="js/controllers/ToDoController.js"></script>
   </head>
   <body>
+
     <div id="todo" ng-controller="ToDoController as controller">
-      {{ controller.todo }}
+
+      <p class='item' ng-repeat="todo in controller.todos">
+        {{ todo.text }} : {{ todo.completed ? 'completed' : 'not completed' }}
+      </p>
+
+      <input id='addToDoText' type='text' ng-model="toDoText" placeholder="New task...">
+      <button id='addToDoButton' ng-click="controller.addToDo(toDoText)">Add task</button>
+      <button id='removeToDoButton' ng-click="controller.removeToDo()">Remove last task</button>
+
     </div>
+
   </body>
 </html>
