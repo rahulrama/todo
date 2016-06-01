@@ -1,11 +1,11 @@
-toDoApp.controller('ToDoController', [function(){
+toDoApp.controller('ToDoController', ['ToDoFactory', function(ToDoFactory){
   
   var self = this;
 
-  self.todos = [{text: "ToDo1", completed: true}, { text: "ToDo2", completed: false}];
+  self.todos = [];
 
   self.addToDo = function(newTask){
-  	self.todos.push({text: newTask, completed: false})
+  	self.todos.push(new ToDoFactory(newTask))
   };
 
   self.removeToDo = function(){
