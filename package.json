@@ -1,0 +1,28 @@
+{
+  "name": "spike",
+  "version": "1.0.0",
+  "description": "coolstuff",
+  "main": "index.js",
+  "dependencies": {
+    "bower": "^1.7.9",
+    "hapi": "^13.4.1",
+    "jasmine-node": "^1.14.5"
+  },
+  "devDependencies": {
+    "bower": "^1.7.9",
+    "jasmine-node": "^1.14.5"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/nmrichards/new_spike.git"
+  },
+  "author": "Nick and Chris",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nmrichards/new_spike/issues"
+  },
+  "homepage": "https://github.com/nmrichards/new_spike#readme"
+}
