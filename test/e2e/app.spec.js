@@ -4,9 +4,10 @@ describe("app", function() {
     expect(browser.getTitle()).toEqual("Ollie's Amazing To Do App");
   });
 
-  it("should say 'Hello Everyone' on the page", function() {
+  it("should have a to do item called 'ToDo1'", function() {
     browser.get('/');
-    expect($$("p").first().getText()).toEqual("Hello Everyone");
-  });
+    var todo = $('#todo');
+    expect(todo.getText()).toEqual("ToDo1")
+  })
 
 });
