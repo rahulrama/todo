@@ -11,7 +11,7 @@ describe('ToDoController', function(){
   beforeEach(inject(function($controller,ToDoFactory,$httpBackend,FilterService){
     ctrl = $controller('ToDoController');
    	fs = FilterService;
-    spyOn(fs,'ammendToDos');
+    spyOn(fs,'ammendToDos').and.returnValue(["ToDo1 : completed"]);
     factory = ToDoFactory;
     httpbackend = $httpBackend;
 		data = [new ToDoFactory('ToDo1',true),new ToDoFactory('ToDo2',false)];
@@ -55,6 +55,13 @@ describe('ToDoController', function(){
     ctrl.clearCompleted();
     expect(ctrl.todos.length).toEqual(1);
     expect(ctrl.todos[0].completed).toEqual(false);
+  });
+
+  it('returns the total number of tasks for the current filter', function() {
+    expect(ctrl.total).toEqual(2)
+    // ctrl.setFilterStatus('Active');
+    ctrl.filterToDos();
+    expect(ctrl.total).toEqual(1);
   });
 
 });

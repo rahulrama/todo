@@ -4,7 +4,10 @@ toDoApp.controller('ToDoController', ['ToDoFactory', 'ToDoService', 'FilterServi
 
   ToDoService.getAll().then(function(response){
   	self.todos = response;
+    self.total = self.todos.length;
   });
+
+
 
   self.filter = 'All';
 
@@ -21,8 +24,10 @@ toDoApp.controller('ToDoController', ['ToDoFactory', 'ToDoService', 'FilterServi
   };
 
   self.filterToDos = function(){
-  	return FilterService.ammendToDos(self.filter,self.todos);
-  };
+  	var temp = FilterService.ammendToDos(self.filter,self.todos);
+    self.total = temp.length;
+    return temp;
+    };
 
   self.clearCompleted = function() {
     self.todos = self.todos.filter(function(x){ return x.completed === false })

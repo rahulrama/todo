@@ -73,6 +73,15 @@ describe("app", function() {
 		expect($$('.item').count()).toEqual(1);
 	})
 
+	it("should display the total number of tasks in the current view", function() {
+		browser.get('/');
+		expect($('.total').getText()).toMatch("2");
+		$('.filterActive').click();
+		expect($('.total').getText()).toMatch("1");
+		$('.filterComplete').click();
+		expect($('.total').getText()).toMatch("1");
+	})
+
   var toString = function(array){
   	return array.map(function(x){return x.getText()});
   };
