@@ -47,4 +47,27 @@ describe("app", function() {
   	expect($$('.item').last().getText()).toEqual('New Task : completed');
   });
 
+  it("should display only active todos when active box is checked", function(){
+  	browser.get('/');
+  	$('.filterActive').click();
+  	expect(toString($$('.item'))).not.toContain('ToDo1 : completed');
+  });
+
+  it("should display only complete todos when complete box is checked", function(){
+  	browser.get('/');
+  	$('.filterComplete').click();
+  	expect(toString($$('.item'))).not.toContain('ToDo2 : not completed');
+  });
+
+  it("should display all todos when all box is checked", function(){
+  	browser.get('/');
+  	$('.filterAll').click();
+  	expect(toString($$('.item'))).toContain('ToDo2 : not completed');
+  	expect(toString($$('.item'))).toContain('ToDo1 : completed');
+  });
+
+  var toString = function(array){
+  	return array.map(function(x){return x.getText()});
+  };
+
 });

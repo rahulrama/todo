@@ -8,12 +8,17 @@
     <script type="text/javascript" src="js/controllers/ToDoController.js"></script>
     <script type="text/javascript" src="js/factories/ToDoFactory.js"></script>
     <script type="text/javascript" src="js/services/ToDoService.js"></script>
+    <script type="text/javascript" src="js/services/FilterService.js"></script>
   </head>
   <body>
 
     <div id="todo" ng-controller="ToDoController as controller">
 
-      <ul ng-repeat="todo in controller.todos">
+      <input type='radio' name='filter' class='filterActive' ng-click="controller.setFilterStatus('Active')">View only active</input>
+      <input type='radio' name='filter' class='filterComplete' ng-click="controller.setFilterStatus('Complete')">View only complete</input>
+      <input type='radio' name='filter' class='filterAll' ng-click="controller.setFilterStatus('All')">View all</input>
+
+      <ul ng-repeat="todo in controller.filterToDos()">
         <li>
           <p class='item'>{{ todo.text }} : {{ todo.completed ? 'completed' : 'not completed' }}</p>
           <button class="setCompleteButton" ng-click="todo.complete()">Complete</button>
