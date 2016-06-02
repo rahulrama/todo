@@ -7,6 +7,7 @@
     <script type="text/javascript" src="js/app.js"></script>
     <script type="text/javascript" src="js/controllers/ToDoController.js"></script>
     <script type="text/javascript" src="js/factories/ToDoFactory.js"></script>
+    <script type="text/javascript" src="js/services/ToDoService.js"></script>
   </head>
   <body>
 
@@ -15,7 +16,7 @@
       <ul ng-repeat="todo in controller.todos">
         <li>
           <p class='item'>{{ todo.text }} : {{ todo.completed ? 'completed' : 'not completed' }}</p>
-          <button id="setCompleteButton" ng-click="todo.complete()">Complete</button>
+          <button class="setCompleteButton" ng-click="todo.complete()">Complete</button>
         </li>
       </ul>
 

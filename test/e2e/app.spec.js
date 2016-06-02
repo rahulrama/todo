@@ -1,5 +1,24 @@
 describe("app", function() {
 
+	var mock = require('protractor-http-mock');
+	var data = [{text: "ToDo1", completed: true}, {text: "ToDo2", completed: false}];
+
+	beforeEach(function(){
+		mock([{
+			request: {
+				path: 'http://quiet-beach-24792.herokuapp.com/todos.json',
+				method: 'GET'
+			},
+			response: {
+				data: data
+			}
+		}]);
+	});
+
+	afterEach(function(){
+		mock.teardown();
+	});
+
   it("should get home page title", function() {
     browser.get('/');
     expect(browser.getTitle()).toEqual("Ollie's Amazing To Do App");
@@ -9,16 +28,14 @@ describe("app", function() {
   	browser.get('/');
   	$('#addToDoText').sendKeys('ToDo');
   	$('#addToDoButton').click();
-  	expect($$('.item').count()).toEqual(1);
+  	expect($$('.item').count()).toEqual(3);
   	expect($$('.item').last().getText()).toEqual('ToDo : not completed');
   });
 
   it("should allow you to remove the last item in the todo list", function(){
   	browser.get('/');
-  	$('#addToDoText').sendKeys('ToDo');
-  	$('#addToDoButton').click();
   	$('#removeToDoButton').click();
-  	expect($$('.item').count()).toEqual(0);
+  	expect($$('.item').count()).toEqual(1);
   });
 
   it("should allow you to set a task as complete", function(){
@@ -26,7 +43,7 @@ describe("app", function() {
   	$('#addToDoText').sendKeys('New Task');
   	$('#addToDoButton').click();
   	expect($$('.item').last().getText()).toEqual('New Task : not completed');
-  	$('#setCompleteButton').click();
+  	$$('.setCompleteButton').last().click();
   	expect($$('.item').last().getText()).toEqual('New Task : completed');
   });
 
