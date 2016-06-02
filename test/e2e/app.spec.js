@@ -66,6 +66,13 @@ describe("app", function() {
   	expect(toString($$('.item'))).toContain('ToDo1 : completed');
   });
 
+	it("should clear the completed tasks when the clear button is clicked", function(){
+		browser.get('/');
+		$('#clearCompletedButton').click();
+		expect(toString($$('.item'))).not.toContain('ToDo1 : completed');
+		expect($$('.item').count()).toEqual(1);
+	})
+
   var toString = function(array){
   	return array.map(function(x){return x.getText()});
   };

@@ -1,5 +1,5 @@
 toDoApp.controller('ToDoController', ['ToDoFactory', 'ToDoService', 'FilterService', function(ToDoFactory,ToDoService,FilterService){
-  
+
   var self = this;
 
   ToDoService.getAll().then(function(response){
@@ -24,4 +24,7 @@ toDoApp.controller('ToDoController', ['ToDoFactory', 'ToDoService', 'FilterServi
   	return FilterService.ammendToDos(self.filter,self.todos);
   };
 
+  self.clearCompleted = function() {
+    self.todos = self.todos.filter(function(x){ return x.completed === false })
+  }
 }])

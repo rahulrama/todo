@@ -11,7 +11,6 @@
     <script type="text/javascript" src="js/services/FilterService.js"></script>
   </head>
   <body>
-
     <div id="todo" ng-controller="ToDoController as controller">
 
       <input type='radio' name='filter' class='filterActive' ng-click="controller.setFilterStatus('Active')">View only active</input>
@@ -28,7 +27,7 @@
       <input id='addToDoText' type='text' ng-model="toDoText" placeholder="New task...">
       <button id='addToDoButton' ng-click="controller.addToDo(toDoText)">Add task</button>
       <button id='removeToDoButton' ng-click="controller.removeToDo()">Remove last task</button>
-
+      <button id='clearCompletedButton' ng-click="controller.clearCompleted()">Clear completed tasks</button>
     </div>
 
   </body>

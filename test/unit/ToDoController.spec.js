@@ -1,5 +1,5 @@
 describe('ToDoController', function(){
-  
+
   beforeEach(module('toDoApp'));
 
   var ctrl;
@@ -49,6 +49,12 @@ describe('ToDoController', function(){
   it('sets a filter status', function(){
   	ctrl.setFilterStatus('Active');
   	expect(ctrl.filter).toEqual('Active');
+  });
+
+  it('clears the completed todos from the list', function(){
+    ctrl.clearCompleted();
+    expect(ctrl.todos.length).toEqual(1);
+    expect(ctrl.todos[0].completed).toEqual(false);
   });
 
 });
