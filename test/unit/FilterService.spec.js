@@ -9,15 +9,15 @@ describe('FilterService', function(){
 	}));
 
 	it('should return only completed tasks when status is set to complete',function(){
-		expect(filter.ammendToDos('Complete',data)).toEqual([{text: "ToDo1", completed: true}]);
+		expect(filter.amendToDos('Complete',data)).toEqual([{text: "ToDo1", completed: true}]);
 	});
 
 	it('should return only incomplete tasks when status is set to active',function(){
-		expect(filter.ammendToDos('Active',data)).toEqual([{text: "ToDo2", completed: false}]);
+		expect(filter.amendToDos('Active',data)).toEqual([{text: "ToDo2", completed: false}]);
 	});
 
 	it('should return all tasks when status is set to all',function(){
-		expect(filter.ammendToDos('All',data)).toEqual(data);
+		expect(filter.amendToDos('All',data)).toEqual(data);
 	});
 
 });

@@ -1,7 +1,6 @@
 {
-  "name": "spike",
+  "name": "blah",
   "version": "1.0.0",
-  "description": "coolstuff",
   "main": "index.js",
   "dependencies": {
     "bower": "^1.7.9",
@@ -26,13 +25,6 @@
     "protractor": "./node_modules/protractor/bin/protractor"
   },
   "repository": {
-    "type": "git",
-    "url": "git+ssh://git@github.com/nmrichards/new_spike.git"
-  },
-  "author": "Nick and Chris",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/nmrichards/new_spike/issues"
-  },
-  "homepage": "https://github.com/nmrichards/new_spike#readme"
+    "type": "git"
+  }
 }

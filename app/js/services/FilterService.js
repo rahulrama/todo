@@ -2,7 +2,7 @@ toDoApp.service('FilterService', function(){
 
 var self = this;
 
-	self.ammendToDos = function(status,todos){
+	self.amendToDos = function(status,todos){
   	if (status === 'Active'){
   		return todos.filter(function(x){ return x.completed === false});
   	};

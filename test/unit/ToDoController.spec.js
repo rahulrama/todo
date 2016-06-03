@@ -11,7 +11,7 @@ describe('ToDoController', function(){
   beforeEach(inject(function($controller,ToDoFactory,$httpBackend,FilterService){
     ctrl = $controller('ToDoController');
    	fs = FilterService;
-    spyOn(fs,'ammendToDos').and.returnValue(["ToDo1 : completed"]);
+    spyOn(fs,'amendToDos').and.returnValue(["ToDo1 : completed"]);
     factory = ToDoFactory;
     httpbackend = $httpBackend;
 		data = [new ToDoFactory('ToDo1',true),new ToDoFactory('ToDo2',false)];
@@ -22,7 +22,7 @@ describe('ToDoController', function(){
   it('should call the filterService function on filter with the filter status and current todos', function(){
   	ctrl.filter = 'All';
   	ctrl.filterToDos();
-  	expect(fs.ammendToDos).toHaveBeenCalledWith(ctrl.filter,ctrl.todos);
+  	expect(fs.amendToDos).toHaveBeenCalledWith(ctrl.filter,ctrl.todos);
   });
 
   it('initialises with several todos', function() {
@@ -59,7 +59,7 @@ describe('ToDoController', function(){
 
   it('returns the total number of tasks for the current filter', function() {
     expect(ctrl.total).toEqual(2)
-    // ctrl.setFilterStatus('Active');
+    ctrl.setFilterStatus('Active');
     ctrl.filterToDos();
     expect(ctrl.total).toEqual(1);
   });

@@ -2,7 +2,7 @@
 <html lang="en" ng-app="toDoApp">
   <head>
     <meta charset="utf-8">
-    <title>Ollie's Amazing To Do App</title>
+    <title>Todo App</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
     <script type="text/javascript" src="js/app.js"></script>
     <script type="text/javascript" src="js/controllers/ToDoController.js"></script>
@@ -17,13 +17,12 @@
       <input type='radio' name='filter' class='filterComplete' ng-click="controller.setFilterStatus('Complete')">View only complete</input>
       <input type='radio' name='filter' class='filterAll' ng-click="controller.setFilterStatus('All')">View all</input>
 
-      <ul ng-repeat="todo in controller.filterToDos()">
-        <li>
-          <p class='item'>{{ todo.text }} : {{ todo.completed ? 'completed' : 'not completed' }}</p>
-          <button class="setCompleteButton" ng-click="todo.complete()">Complete</button>
+      <ul ng-repeat="todo in controller.todos | custom1:controller.filter as filtered">
+        <li class='item'>{{ todo.text }} : {{ todo.completed ? 'completed' : 'not completed' }}
+          <span><button class="setCompleteButton" ng-click="todo.complete()">Complete</button></span>
         </li>
       </ul>
-      <p class= "total">Total: {{ controller.total }}</p>
+      <p class= "total">Total: {{ filtered.length }}</p>
       <input id='addToDoText' type='text' ng-model="toDoText" placeholder="New task...">
       <button id='addToDoButton' ng-click="controller.addToDo(toDoText)">Add task</button>
       <button id='removeToDoButton' ng-click="controller.removeToDo()">Remove last task</button>

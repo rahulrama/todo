@@ -1,12 +1,6 @@
 {
-  "name": "spike",
-  "description": "coolstuff",
+  "name": "blah",
   "main": "index.js",
-  "authors": [
-    "Nick and Chris"
-  ],
-  "license": "ISC",
-  "homepage": "https://github.com/nmrichards/spike_angular",
   "ignore": [
     "**/.*",
     "node_modules",

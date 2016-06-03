@@ -7,8 +7,6 @@ toDoApp.controller('ToDoController', ['ToDoFactory', 'ToDoService', 'FilterServi
     self.total = self.todos.length;
   });
 
-
-
   self.filter = 'All';
 
   self.addToDo = function(newTask){
@@ -24,12 +22,12 @@ toDoApp.controller('ToDoController', ['ToDoFactory', 'ToDoService', 'FilterServi
   };
 
   self.filterToDos = function(){
-  	var temp = FilterService.ammendToDos(self.filter,self.todos);
+  	var temp = FilterService.amendToDos(self.filter,self.todos);
     self.total = temp.length;
     return temp;
     };
 
   self.clearCompleted = function() {
-    self.todos = self.todos.filter(function(x){ return x.completed === false })
+    self.todos = self.todos.filter(function(x){ return x.completed === false }) 
   }
 }])
